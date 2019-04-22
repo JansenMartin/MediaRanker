@@ -10,6 +10,32 @@
   </head>
 
   <body>
+
+   <header>
+      <h1>MediaRanker</h1>
+      <h2>Ranking the Best of Everything</h2>
+    </header>
+
+    <nav>
+      <ul>
+       <li>
+         <%= link_to 'View top media', root_path %>
+       </li>
+       <li>
+         <%= link_to "View all media", root_path%>
+      </li>
+       <li>
+         <%= link_to "Add new work", root_path%>
+      </li>
+       <li>
+         <%= link_to "View all users", root_path%>
+      </li>
+       <li>
+         <%= link_to "Log In", root_path%>
+      </li>
+      </ul>
+    </nav>
+  
     <%= yield %>
   </body>
 </html>
