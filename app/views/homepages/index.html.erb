@@ -14,7 +14,7 @@
     <ul>
       <% @top_movies.each do |movie| %>
         <li>
-          <%= movie.title %> by <%= movie.creator %>
+          <%= link_to "#{movie.title}", work_path(movie.id) %> by <%= movie.creator %>
         </li>
       <% end %>
      </ul>
@@ -26,7 +26,7 @@
     <ul>
       <% @top_books.each do |book| %>
         <li>
-          <%= book.title %> by <%= book.creator %>
+          <%= link_to "#{book.title}", work_path(book.id) %> by <%= book.creator %>
         </li>
       <% end %>
      </ul>
@@ -38,7 +38,7 @@
     <ul>
       <% @top_albums.each do |album| %>
         <li>
-          <%= album.title %> by <%= album.creator %>
+          <%= link_to "#{album.title}", work_path(album.id) %> by <%= album.creator %>
         </li>
       <% end %>
      </ul>
