@@ -30,8 +30,10 @@ describe WorksController do
       # Arrange
 
       # Act
+      get work_path(@work.id)
 
       # Assert
+      must_respond_with :ok
     end
   end
 end
