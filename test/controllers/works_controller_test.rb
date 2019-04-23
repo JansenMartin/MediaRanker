@@ -1,7 +1,13 @@
 require "test_helper"
 
 describe WorksController do
-  # it "must be a real test" do
-  #   flunk "Need real tests"
-  # end
+  it "can get the index" do
+    # Arrange
+
+    # Act
+    get works_path
+
+    # Assert
+    must_respond_with :ok
+  end
 end

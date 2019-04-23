@@ -1,0 +1,59 @@
+<h1>List of Works</h2>
+
+<main>
+
+  <h2>Albums</h2>
+
+   <strong>Votes</strong>  <strong>Title</strong>  <strong>Created By</strong>  
+   <strong>Published</strong> <strong>Upvote</strong><br>
+  <% @albums.each do |album| %>
+    Votes  <%= album.title %>  <%= album.creator %>  <%= album.publication_year %>  Upvote<br>
+  <% end %>
+
+  <h2>Books</h2>
+
+   <strong>Votes</strong>  <strong>Title</strong>  <strong>Created By</strong>  
+   <strong>Published</strong> <strong>Upvote</strong><br>
+  <% @books.each do |book| %>
+    Votes  <%= book.title %>  <%= book.creator %>  <%= book.publication_year %>  Upvote<br>
+  <% end %>
+
+  <h2>Movies</h2>
+
+   <strong>Votes</strong>  <strong>Title</strong>  <strong>Created By</strong>  
+   <strong>Published</strong> <strong>Upvote</strong><br>
+  <% @movies.each do |movie| %>
+    Votes  <%= movie.title %>  <%= movie.creator %>  <%= movie.publication_year %>  Upvote<br>
+  <% end %>
+
+  <br>
+
+  <table>
+    <tr>
+      <th>Votes &nbsp; &nbsp; &nbsp;</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+    </tr>
+
+     <% @albums.each do |album| %>
+          <td>
+            Votes
+          </td>
+          <td>
+            <%= album.title %>
+          </td>
+          <td>
+            <%= album.creator %>
+          </td>
+          <td>
+            <%= album.publication_year %>
+          </td>
+          <td>
+            Upvote
+          </td>
+        <% end %>
+</table>
+
+</main>
