@@ -1,6 +1,9 @@
 require "test_helper"
 
 describe WorksController do
+  before do
+    @work = Work.first
+  end
   it "can get the index" do
     # Arrange
 
@@ -24,6 +27,11 @@ describe WorksController do
     end
 
     it "works for a work that exists" do
+      # Arrange
+
+      # Act
+
+      # Assert
     end
   end
 end
