@@ -1,1 +1,5 @@
-<h2>Name of Work Goes Here!</h2>
+<h2><%= @work.title %></h2>
+Created by: <%= @work.creator %><br>
+Published: <%= @work.publication_year %><br>
+
+<%= link_to "Back to media ranks", root_path %>  EDIT  UPVOTE  DELETE
