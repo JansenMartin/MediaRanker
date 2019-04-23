@@ -6,8 +6,43 @@
   <body>
 
 <main>
-  <h2>Top Media</h2>
-  <p>Look at all these movies, albums and other fun stuff!  We've got <%= @num_of_works %> of 'em! </p>
+  <h2>Media Spotlight: <%= @media_spotlight.title %> by <%= @media_spotlight.creator %> </h2>
+  
+  <%# MOVIES %>
+  <h2>Top Movies</h2>
+  <section>
+    <ul>
+      <% @top_movies.each do |movie| %>
+        <li>
+          <%= movie.title %> by <%= movie.creator %>
+        </li>
+      <% end %>
+     </ul>
+  </section>
+
+  <%# BOOKS %>
+  <h2>Top Books</h2>
+  <section>
+    <ul>
+      <% @top_books.each do |book| %>
+        <li>
+          <%= book.title %> by <%= book.creator %>
+        </li>
+      <% end %>
+     </ul>
+  </section>
+
+  <%# ALBUMS %>
+  <h2>Top Albums</h2>
+  <section>
+    <ul>
+      <% @top_albums.each do |album| %>
+        <li>
+          <%= album.title %> by <%= album.creator %>
+        </li>
+      <% end %>
+     </ul>
+  </section>
 </main>
 
 </body>
