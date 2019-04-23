@@ -5,6 +5,10 @@ class WorksController < ApplicationController
     @movies = Work.where(category: "movie")
   end
 
+  def new
+    # Make new work!
+  end
+
   def show
     # Grab the id of work we wanna show
     work_id = params[:id]

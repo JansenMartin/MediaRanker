@@ -36,4 +36,15 @@ describe WorksController do
       must_respond_with :ok
     end
   end
+
+  describe "new" do
+    # It can make a new thing (returns status code 200)
+    it "returns status code 200" do
+      # Act/ Arrange
+      get new_work_path
+
+      # Assert
+      must_respond_with :ok
+    end
+  end
 end
