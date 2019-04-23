@@ -4,40 +4,19 @@
 
   <h2>Albums</h2>
 
-   <strong>Votes</strong>  <strong>Title</strong>  <strong>Created By</strong>  
-   <strong>Published</strong> <strong>Upvote</strong><br>
-  <% @albums.each do |album| %>
-    Votes  <%= album.title %>  <%= album.creator %>  <%= album.publication_year %>  Upvote<br>
-  <% end %>
-
-  <h2>Books</h2>
-
-   <strong>Votes</strong>  <strong>Title</strong>  <strong>Created By</strong>  
-   <strong>Published</strong> <strong>Upvote</strong><br>
-  <% @books.each do |book| %>
-    Votes  <%= book.title %>  <%= book.creator %>  <%= book.publication_year %>  Upvote<br>
-  <% end %>
-
-  <h2>Movies</h2>
-
-   <strong>Votes</strong>  <strong>Title</strong>  <strong>Created By</strong>  
-   <strong>Published</strong> <strong>Upvote</strong><br>
-  <% @movies.each do |movie| %>
-    Votes  <%= movie.title %>  <%= movie.creator %>  <%= movie.publication_year %>  Upvote<br>
-  <% end %>
-
-  <br>
-
-  <table>
-    <tr>
-      <th>Votes &nbsp; &nbsp; &nbsp;</th>
-      <th>Title</th>
-      <th>Created By</th>
-      <th>Published</th>
-      <th>Upvote</th>
-    </tr>
-
+<table class="table">
+    <thead>
+      <tr>
+        <th>Votes &nbsp; &nbsp; &nbsp;</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
      <% @albums.each do |album| %>
+       <tr>
           <td>
             Votes
           </td>
@@ -53,7 +32,80 @@
           <td>
             Upvote
           </td>
+        </tr>
         <% end %>
+    </tbody>
+</table>
+
+  <h2>Books</h2>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Votes &nbsp; &nbsp; &nbsp;</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @books.each do |book| %>
+       <tr>
+          <td>
+            Votes
+          </td>
+          <td>
+            <%= book.title %>
+          </td>
+          <td>
+            <%= book.creator %>
+          </td>
+          <td>
+            <%= book.publication_year %>
+          </td>
+          <td>
+            Upvote
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+  <h2>Movies</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Votes &nbsp; &nbsp; &nbsp;</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @movies.each do |movie| %>
+       <tr>
+          <td>
+            Votes
+          </td>
+          <td>
+            <%= movie.title %>
+          </td>
+          <td>
+            <%= movie.creator %>
+          </td>
+          <td>
+            <%= movie.publication_year %>
+          </td>
+          <td>
+            Upvote
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 </main>
