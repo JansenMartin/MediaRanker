@@ -81,6 +81,20 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    # Find id - done by filter already
+
+    unless @work
+      # do a thing
+    end
+
+    successful = @work.destroy
+    if successful
+      flash[:status] = :success
+      flash[:message] = "Successfully destroyed work #{@work.id}."
+      redirect_to works_path
+    end
+
+    # Otherwise, head :not_found
   end
 
   private

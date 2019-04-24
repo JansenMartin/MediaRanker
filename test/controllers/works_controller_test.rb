@@ -168,4 +168,31 @@ describe WorksController do
       must_respond_with :bad_request
     end
   end
+
+  describe "destroy" do
+    it "removes a work from the database" do
+      # Arrange -- We have a book.  Already
+
+      # Act -- Destroy book with this ID!  Expect that the DB is -1 now
+      expect {
+        delete work_path(@work.id)
+      }.must_change "Work.count", -1
+
+      # Assert
+      #  It needs to respond with a redirect
+      must_respond_with :redirect
+      #  It needs to redirect to works_path
+      must_redirect_to works_path
+
+      # Check our flash messages!
+      check_flash
+
+      #  Let's try to assign the deleted book to a variable.  Is it nil?
+      after_work = Work.find_by(id: @work.id)
+      expect(after_work).must_be_nil
+    end
+
+    it "returns 404 if it tries to destroy a work that doesn't exist" do
+    end
+  end
 end
