@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: MyString
-  description: MyString
+toy_story:
+  category: movie
+  title: Toy Story
+  creator: Pixar
+  publication_year: 1995
+  description: A buddy movie about toys.  T...hanks!
 
 two:
   category: MyString

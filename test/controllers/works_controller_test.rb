@@ -75,6 +75,31 @@ describe WorksController do
 
     it "sends back bad_request if given no work data" do
       # What happens if I don't feed it any data?
+
+      # Arrange
+      # Blank book data!
+      work_data = {
+        work: {
+          category: "",
+        },
+      }
+
+      # Assumption
+      # COME BACK TO THIS AFTER MAKING VALIDATORS?
+      # Expect...Makin' a new book with above book data...won't be valid!
+      # expect(Work.new(work_data[:work])).wont_be :valid?
+
+      # Act
+      expect {
+        post works_path, params: work_data
+      }.wont_change "Work.count"
+      # Expect...
+      # Post to works_path, with work_data for params...
+      # won't change Work count
+
+      # Assert
+      must_respond_with :bad_request
+      # must respond with :bad_request
     end
   end
 end
