@@ -10,11 +10,15 @@ class WorksController < ApplicationController
   end
 
   def create
-    # Create a new instance of Work using work_params
+    @work = Work.new(work_params)
 
-    # If it saves successfully, redirect to works_path
-    # Otherwise, render :new, status: :bad_request
+    successful = @work.save
 
+    if successful
+      redirect_to works_path
+    else
+      render :new, status: :bad_request
+    end
   end
 
   def show

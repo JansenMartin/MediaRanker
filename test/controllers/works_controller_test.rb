@@ -49,6 +49,28 @@ describe WorksController do
 
     it "creates a new work" do
       # What happens if I successfully save to DB?
+
+      # Arrange
+      # Gimme some work data
+      work_data = {
+        work: {
+          category: "Test Cat",
+          title: "Test Title",
+          creator: "Test Creator",
+          publication_year: "Test Year",
+          description: "Test description ah-yep!",
+        },
+      }
+
+      # Act
+      # Expect...
+      expect {
+        post works_path, params: work_data
+      }.must_change "Work.count", +1
+
+      # Assert
+      must_respond_with :redirect
+      must_redirect_to works_path
     end
 
     it "sends back bad_request if given no work data" do
