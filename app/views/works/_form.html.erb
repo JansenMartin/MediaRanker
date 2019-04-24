@@ -1,7 +1,7 @@
 <%= form_with model: @work do |f| %>
 
 <%= f.label :category %>
-<%= f.text_field :category %>
+<%= f.select :category, [["album", "album"], ["book", "book"], ["movie", "movie"]] %>
 
 <%= f.label :title %>
 <%= f.text_field :title %>
