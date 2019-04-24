@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+
   def index
     @albums = Work.top_media("album")
     @books = Work.top_media("book")
@@ -32,10 +34,10 @@ class WorksController < ApplicationController
   end
 
   def show
-    # Grab the id of work we wanna show
-    work_id = params[:id]
-    # Use that id to find work object, assign it a name
-    @work = Work.find_by(id: work_id)
+    # # Grab the id of work we wanna show
+    # work_id = params[:id]
+    # # Use that id to find work object, assign it a name
+    # @work = Work.find_by(id: work_id)
 
     # If the work doesn't exist, not found!
     unless @work
@@ -44,11 +46,11 @@ class WorksController < ApplicationController
   end
 
   def edit
-    # What's the work id?
-    work_id = params[:id]
+    # # What's the work id?
+    # work_id = params[:id]
 
-    # What's the work?
-    @work = Work.find_by(id: work_id)
+    # # What's the work?
+    # @work = Work.find_by(id: work_id)
 
     # Does this work even exist?
     # If not, what happens? head :not_found
@@ -59,8 +61,8 @@ class WorksController < ApplicationController
   end
 
   def update
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
+    # work_id = params[:id]
+    # @work = Work.find_by(id: work_id)
 
     unless @work
       head :not_found
@@ -78,9 +80,16 @@ class WorksController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+  def find_work
+    @work = Work.find_by_id(params[:id])
   end
 end
