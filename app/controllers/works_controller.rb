@@ -60,13 +60,24 @@ class WorksController < ApplicationController
 
   def update
     # What work are we updating?
+    work_id = params[:id]
+    @work = Work.find_by(id: work_id)
 
-    # Does this work even exist?
+    # # Does this work even exist?
+    unless @work
+      head :not_found
+      return
+    end
     # If not, what happens?  head :not_found
 
     # If it updates...
     # Flash status is success!
     # Flash message => Successfully updated album 322
+    if @work.update(work_params)
+      flash[:status] = :success
+      flash[:message] = "Successfully updated #{@work.category} #{Work.where(category: @work.category).count}"
+      redirect_to work_path(@work)
+    end
 
     # If it fails...
     # Flash status is error!

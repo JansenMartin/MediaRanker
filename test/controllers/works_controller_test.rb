@@ -116,4 +116,44 @@ describe WorksController do
       #must_respond_with :not_found
     end
   end
+
+  describe "update" do
+    let(:work_data) {
+      {
+        work: {
+          title: "changed",
+        },
+      }
+    }
+    it "can update data on the model" do
+
+      # Assumptions
+      @work.assign_attributes(work_data[:work])
+      expect(@work).must_be :valid?
+      @work.reload
+
+      # Act
+      patch work_path(@work), params: work_data
+
+      # Assert
+      must_respond_with :redirect
+      must_redirect_to work_path(@work)
+
+      # TODO
+      # Check flash here
+
+      @work.reload
+      expect(@work.title).must_equal(work_data[:work][:title])
+    end
+
+    it "does something if the work is fake" do
+      # work_id = Work.last.id + 1
+      # patch edit_work_path(id: work_id)
+      # must_respond_with :not_found
+    end
+
+    it "does something if the work has bad data" do
+      # must_respond_with :bad_request
+    end
+  end
 end
