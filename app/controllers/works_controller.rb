@@ -15,8 +15,18 @@ class WorksController < ApplicationController
     successful = @work.save
 
     if successful
+      # Set flash status to success
+      flash[:status] = :success
+      # Set flash message
+      flash[:message] = "Successfuly created #{@work.category}  #{Work.where(category: @work.category).count}"
+      # Don't use NOW since we redirect
       redirect_to works_path
     else
+      # Set flash.now status to error
+      flash.now[:status] = :error
+      # Set flash.now message
+      flash.now[:message] = "A problem occurred:  Could not create #{@work.category}"
+      # Use NOW since we RENDER
       render :new, status: :bad_request
     end
   end
