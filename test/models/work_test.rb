@@ -5,8 +5,7 @@ describe Work do
     @work = works(:toy_story)
   end
 
-  it "must be valid with good data" do
-    result = @work.valid?
-    expect(result).must_equal true
+  it "passes validations with good data" do
+    expect(@work).must_be :valid?
   end
 end
