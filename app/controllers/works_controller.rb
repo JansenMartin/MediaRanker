@@ -6,7 +6,15 @@ class WorksController < ApplicationController
   end
 
   def new
-    # Make new work!
+    @work = Work.new
+  end
+
+  def create
+    # Create a new instance of Work using work_params
+
+    # If it saves successfully, redirect to works_path
+    # Otherwise, render :new, status: :bad_request
+
   end
 
   def show
@@ -19,5 +27,11 @@ class WorksController < ApplicationController
     unless @work
       head :not_found
     end
+  end
+
+  private
+
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end

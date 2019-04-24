@@ -46,5 +46,13 @@ describe WorksController do
       # Assert
       must_respond_with :ok
     end
+
+    it "creates a new work" do
+      # What happens if I successfully save to DB?
+    end
+
+    it "sends back bad_request if given no work data" do
+      # What happens if I don't feed it any data?
+    end
   end
 end
