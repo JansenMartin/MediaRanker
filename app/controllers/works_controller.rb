@@ -75,14 +75,17 @@ class WorksController < ApplicationController
     # Flash message => Successfully updated album 322
     if @work.update(work_params)
       flash[:status] = :success
-      flash[:message] = "Successfully updated #{@work.category} #{Work.where(category: @work.category).count}"
+      flash[:message] = "Successfully updated #{@work.category} NUMBER HERE"
       redirect_to work_path(@work)
+      # If it fails...
+      # Flash status is error!
+      # Flash message => Could not save album 322
+      # render :edit, status: :bad_request
+    else
+      flash.now[:status] = :error
+      flash.now[:message] = "Could not save #{@work.category} NUMBER HERE"
+      render :edit, status: :bad_request
     end
-
-    # If it fails...
-    # Flash status is error!
-    # Flash message => Could not save album 322
-    # render :edit, status: :bad_request
   end
 
   private

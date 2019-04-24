@@ -146,10 +146,10 @@ describe WorksController do
       expect(@work.title).must_equal(work_data[:work][:title])
     end
 
-    it "does something if the work is fake" do
-      # work_id = Work.last.id + 1
-      # patch edit_work_path(id: work_id)
-      # must_respond_with :not_found
+    it "responds with not found if the work is fake" do
+      work_id = Work.last.id + 1
+      patch work_path(id: work_id)
+      must_respond_with :not_found
     end
 
     it "does something if the work has bad data" do
