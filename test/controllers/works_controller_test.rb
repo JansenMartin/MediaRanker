@@ -85,9 +85,7 @@ describe WorksController do
       }
 
       # Assumption
-      # COME BACK TO THIS AFTER MAKING VALIDATORS?
-      # Expect...Makin' a new book with above book data...won't be valid!
-      # expect(Work.new(work_data[:work])).wont_be :valid?
+      expect(Work.new(work_data[:work])).wont_be :valid?
 
       # Act
       expect {
