@@ -43,6 +43,37 @@ class WorksController < ApplicationController
     end
   end
 
+  def edit
+    # What's the work id?
+    work_id = params[:id]
+
+    # What's the work?
+    @work = Work.find_by(id: work_id)
+
+    # Does this work even exist?
+    # If not, what happens? head :not_found
+
+    unless @work
+      head :not_found
+    end
+  end
+
+  def update
+    # What work are we updating?
+
+    # Does this work even exist?
+    # If not, what happens?  head :not_found
+
+    # If it updates...
+    # Flash status is success!
+    # Flash message => Successfully updated album 322
+
+    # If it fails...
+    # Flash status is error!
+    # Flash message => Could not save album 322
+    # render :edit, status: :bad_request
+  end
+
   private
 
   def work_params

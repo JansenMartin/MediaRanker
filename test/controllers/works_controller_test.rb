@@ -100,4 +100,20 @@ describe WorksController do
       # must respond with :bad_request
     end
   end
+
+  describe "edit" do
+    # What happens if it saves successfuly?
+    it "responds ok if the work exists" do
+      get edit_work_path(@work)
+      must_respond_with :ok
+    end
+
+    # What happens if it fails?
+    it "responds with not found if the work doesn't exist" do
+      work_id = Work.last.id + 1
+      get edit_work_path(id: work_id)
+      must_respond_with :not_found
+      #must_respond_with :not_found
+    end
+  end
 end
