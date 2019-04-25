@@ -7,9 +7,16 @@ toy_story:
   publication_year: 1995
   description: A buddy movie about toys.  T...hanks!
 
-two:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: MyString
-  description: MyString
+wrinkle:
+  category: book
+  title: A Wrinkle in Time
+  creator: Madeleine L'Engle
+  publication_year: 1962
+  description: A science fantasy novel!
+
+waking_ned:
+  category: movie
+  title: Waking Ned Devine
+  creator: Kirk Jones
+  publication_year: 1998
+  description: A funny movie.
