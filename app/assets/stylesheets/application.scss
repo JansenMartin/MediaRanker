@@ -28,7 +28,12 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    // margin-bottom: 0;
     // grid-template-columns: 1fr 1fr;
+}
+
+nav ul {
+    margin-bottom: 0;
 }
 
 .user-nav-container {
@@ -61,7 +66,10 @@ a:hover {
     background-color: #26A69A;
     color: white;
     border-color: #26A69A;
-    float: right;
+}
+
+.btn-primary a {
+    padding: 0;
 }
 
 .btn-primary:hover {
