@@ -3,10 +3,29 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # Has this user logged in before?
-  # If yes, set the session to the user id...and welcome them!
-  # If no, create a new user...THEN set the session to user id, and welcome them!
+  def login
+    # What's the user's username?
+    username = params[:user][:username]
+    user = User.find_by(username: username)
 
-  # What if there's an error?
-  # Redirect to login_form
+    # Has this user logged in before?
+    if user
+      #   # If yes, set the session to the user id...and welcome them!
+      #   session[:user_id] = User.find_by(id: user.id)
+      #   flash[:status] = :success
+      #   flash[:message] = "Welcome back, #{username}!"
+    else
+      user = User.create(user_params)
+      flash[:status] = :success
+      flash[:message] = "Nice to meet you, #{username}!"
+    end
+
+    redirect_to root_path
+  end
+
+  private
+
+  def user_params
+    return params.require(:user).permit(:username)
+  end
 end
