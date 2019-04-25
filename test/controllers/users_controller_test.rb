@@ -5,6 +5,9 @@ describe UsersController do
   #   flunk "Need real tests"
   # end
 
+  before do
+    @user = User.new(username: "cuppy")
+  end
   describe "login_form" do
     it "renders without crashing" do
       # Arrange
@@ -34,11 +37,29 @@ describe UsersController do
       # Assert
       must_redirect_to root_path
 
+      check_flash
+
       user = User.last
       expect(user.username).must_equal user_data[:user][:username]
     end
 
     it "doesn't add an existing user to the database" do
+      # Arrange
+      user_data = {
+        user: {
+          username: "cuppy",
+        },
+      }
+
+      # Act
+      expect {
+        post "/login", params: user_data
+      }.wont_change "User.count"
+
+      # Assert
+      must_redirect_to root_path
+
+      check_flash
     end
   end
 end

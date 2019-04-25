@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     # Has this user logged in before?
     if user
       #   # If yes, set the session to the user id...and welcome them!
-      #   session[:user_id] = User.find_by(id: user.id)
-      #   flash[:status] = :success
-      #   flash[:message] = "Welcome back, #{username}!"
+      session[:user_id] = User.find_by(id: user.id)
+      flash[:status] = :success
+      flash[:message] = "Welcome back, #{username}!"
     else
       user = User.create(user_params)
+      session[:user_id] = User.find_by(id: user.id)
       flash[:status] = :success
       flash[:message] = "Nice to meet you, #{username}!"
     end
