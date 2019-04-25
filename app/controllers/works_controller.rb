@@ -2,9 +2,9 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update, :destroy]
 
   def index
-    @albums = Work.top_media("album")
-    @books = Work.top_media("book")
-    @movies = Work.top_media("movie")
+    @albums = Work.index_media("album")
+    @books = Work.index_media("book")
+    @movies = Work.index_media("movie")
   end
 
   def new

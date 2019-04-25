@@ -8,7 +8,7 @@ class Work < ApplicationRecord
   # Must have a creator
   validates :creator, presence: true
 
-  def self.top_media(media_type)
+  def self.index_media(media_type)
     collection = Work.where(category: media_type)
     return collection
   end
