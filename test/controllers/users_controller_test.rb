@@ -32,7 +32,7 @@ describe UsersController do
       }.must_change "User.count", +1
 
       # Assert
-      # must_redirect_to root_path
+      must_redirect_to root_path
 
       user = User.last
       expect(user.username).must_equal user_data[:user][:username]
