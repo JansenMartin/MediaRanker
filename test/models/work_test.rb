@@ -5,8 +5,18 @@ describe Work do
     @work = works(:toy_story)
   end
 
-  it "passes validations with good data" do
-    expect(@work).must_be :valid?
+  describe "validations" do
+    it "passes validations with good data" do
+      expect(@work).must_be :valid?
+    end
+
+    it "rejects works without a title" do
+      @work.title = ""
+
+      result = @work.valid?
+
+      expect(result).must_equal false
+    end
   end
 
   describe "index_media" do
