@@ -15,3 +15,51 @@
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
+
+
+header {
+    background-color: #B2DFDB;
+}
+header h1 {
+    color: #FF5722;;
+}
+
+nav {
+    display: flex;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    color: #00796B;
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color:  #26A69A;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #00796B;
+}
+.btn-primary {
+    background-color: #26A69A;
+    color: white;
+    border-color: #26A69A;
+}
+
+.btn-primary:hover {
+    background-color: #00796B;
+}
+
+.btn-primary a {
+    color: white;
+}
