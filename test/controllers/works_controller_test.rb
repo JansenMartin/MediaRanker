@@ -193,6 +193,22 @@ describe WorksController do
     end
 
     it "returns 404 if it tries to destroy a work that doesn't exist" do
+
+      # Arrange
+      # Bogus ID
+      fake_id = Work.last.id + 1
+
+      # Act
+      # Try to destroy bogus ID
+      expect {
+        delete work_path(fake_id)
+      }.wont_change "Work.count"
+
+      # Check flash??
+
+      # Assert
+      must_respond_with :not_found
+      # Must respond with 404
     end
   end
 end
