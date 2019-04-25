@@ -17,7 +17,7 @@
     
 
       <nav>
-        <ul>
+        <ul class="site-nav-container">
          <li>
            <%= link_to 'View top media', root_path %>
          </li>
@@ -30,9 +30,11 @@
          <li>
            <%= link_to "View all users", root_path%>
          </li>
-         <li class="btn btn-primary">
-           <%= link_to "Log In", root_path %>
-         </li>
+        </ul>
+        <ul class="user-nav-container">
+          <li class="btn btn-primary">
+            <%= link_to "Log In", root_path %>
+          </li>
         </ul>
       </nav>
     </header>

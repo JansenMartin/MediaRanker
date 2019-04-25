@@ -26,6 +26,13 @@ header h1 {
 
 nav {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // grid-template-columns: 1fr 1fr;
+}
+
+.user-nav-container {
+    flex-wrap: wrap;
 }
 
 nav li {
@@ -54,6 +61,7 @@ a:hover {
     background-color: #26A69A;
     color: white;
     border-color: #26A69A;
+    float: right;
 }
 
 .btn-primary:hover {
