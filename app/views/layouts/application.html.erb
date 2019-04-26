@@ -35,7 +35,11 @@
         </ul>
         <ul class="user-nav-container">
           <li class="btn btn-primary">
-            <%= link_to session[:user_id] ? "Log Out" : "Log In", login_path %>
+           <% if session[:user_id] %>
+             <%= link_to "Logout", logout_path, method: :post %>
+           <% else %>
+             <%= link_to "Log In", login_path %>
+           <% end %>
           </li>
         </ul>
       </nav>
