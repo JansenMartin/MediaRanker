@@ -49,18 +49,17 @@ describe Work do
     before do
       @top_movies = Work.top_media("movie")
     end
-    it "returns a list of 10 Work objects" do
+    it "returns a list of Work objects" do
       movie = @top_movies.first
 
       expect(movie).must_be_kind_of Work
-      expect(@top_movies.count).must_equal 10
     end
 
-    it "returns a list of 10 movies, even if there are more than 10 of them" do
-      movies_count = Work.where(category: "movie").count
-
-      expect(@top_movies.count).must_equal 10
-      expect(movies_count > 10).must_equal true
+    it "returns a list of Work objects with a vote count greater than 0" do
+      @top_movies.each do |movie|
+        result = movie.votes_count > 0
+        expect(result).must_equal true
+      end
     end
 
     it "returns an empty list if there are no works in the database" do

@@ -6,6 +6,7 @@ toy_story:
   creator: Pixar
   publication_year: 1995
   description: A buddy movie about toys.  T...hanks!
+  votes_count: 5
 
 wrinkle:
   category: book
@@ -20,6 +21,7 @@ waking_ned:
   creator: Kirk Jones
   publication_year: 1998
   description: A funny movie.
+  votes_count: 4
 
 the_rising:
   category: movie
@@ -27,6 +29,7 @@ the_rising:
   creator: Sunrise
   publication_year: 2014
   description: Super shenanigans
+  votes_count: 3
 
 mulan:
   category: movie
@@ -34,6 +37,7 @@ mulan:
   creator: Tony Bancroft, Barry Cook
   publication_year: 1998
   description: She's the only Disney Princess with a body count
+  votes_count: 10
 
 kiki:
   category: movie

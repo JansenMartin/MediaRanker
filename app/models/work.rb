@@ -9,7 +9,7 @@ class Work < ApplicationRecord
   end
 
   def self.top_media(media_type)
-    collection = Work.where(category: media_type).order(votes_count: :desc).limit(10)
+    collection = Work.where(category: media_type).where("votes_count > ?", 0).order(votes_count: :desc).limit(10)
     return collection
   end
 
