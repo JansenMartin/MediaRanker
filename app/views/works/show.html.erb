@@ -7,5 +7,5 @@ Published: <%= @work.publication_year %><br>
 <%= link_to "Upvote", work_votes_path(@work.id), method: :post, class: "btn btn-primary" %>  
 <%= link_to "Delete", work_path(@work), method: :delete, data: { confirm: "Are you sure you want to delete this work?" } %> <br>
 
-X Votes for this movie <br>
+<%= @work.votes.length %> Votes for this movie <br>
 Table of Votes goes here
