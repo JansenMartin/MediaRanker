@@ -62,4 +62,20 @@ describe UsersController do
       check_flash
     end
   end
+
+  describe "logout" do
+    # # Arrange
+    # perform_login
+
+    # # Act
+
+    # perform_logout
+
+    # # Assert
+
+    # check_flash
+
+    # expect { session[:user_id] }.must_equal nil
+    # must_redirect_to root_path
+  end
 end
