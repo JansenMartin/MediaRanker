@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "homepages#index"
 
   resources :works do
-    resources :votes, only: [:new]
+    resources :votes, only: [:create]
   end
 
   get "/login", to: "users#login_form", as: "login"
