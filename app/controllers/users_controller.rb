@@ -29,9 +29,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def current
-  end
-
   def logout
     flash[:status] = :success
     flash[:message] = "Successfully logged out!  See you later, 'gator."
