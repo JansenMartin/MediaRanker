@@ -62,6 +62,14 @@ describe Work do
       end
     end
 
+    it "returns a list of highest vote counts, in descending order" do
+      best_movie = @top_movies.first
+      good_movie = @top_movies.last
+
+      result = best_movie.votes_count >= good_movie.votes_count
+      expect(result).must_equal true
+    end
+
     it "returns an empty list if there are no works in the database" do
       Work.destroy_all
 
@@ -73,5 +81,7 @@ describe Work do
       expect(top_books.count).must_equal 0
       expect(top_albums.count).must_equal 0
     end
+
+    #TODO It does something in the event of ties
   end
 end
