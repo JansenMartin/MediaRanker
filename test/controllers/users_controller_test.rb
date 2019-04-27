@@ -73,7 +73,6 @@ describe UsersController do
       # Assumptions
       @user.assign_attributes(user_data[:user])
       expect(@user).wont_be :valid?
-      # @user.reload
 
       # Act
       post login_path(@user), params: user_data
@@ -85,22 +84,6 @@ describe UsersController do
   end
 
   describe "logout" do
-    # It stops tracking a user
-  end
-
-  describe "logout" do
-    # # Arrange
-    # perform_login
-
-    # # Act
-
-    # perform_logout
-
-    # # Assert
-
-    # check_flash
-
-    # expect { session[:user_id] }.must_equal nil
-    # must_redirect_to root_path
+    # TODO
   end
 end
