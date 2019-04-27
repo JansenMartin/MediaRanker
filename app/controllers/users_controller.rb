@@ -17,7 +17,9 @@ class UsersController < ApplicationController
     else
       @user = User.new(user_params)
       unless @user.save
-        render :login_form
+        flash[:status] = :error
+        flash[:message] = "Please try again."
+        render :login_form, status: :bad_request
         return
       else
         session[:user_id] = User.find_by(id: @user.id)
@@ -27,9 +29,6 @@ class UsersController < ApplicationController
     end
 
     redirect_to root_path
-  end
-
-  def current
   end
 
   def logout

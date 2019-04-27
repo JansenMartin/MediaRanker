@@ -61,5 +61,30 @@ describe UsersController do
 
       check_flash
     end
+
+    it "responds with bad request with an invalid username" do
+      # Arrange
+      user_data = {
+        user: {
+          username: "",
+        },
+      }
+
+      # Assumptions
+      @user.assign_attributes(user_data[:user])
+      expect(@user).wont_be :valid?
+      # @user.reload
+
+      # Act
+      post login_path(@user), params: user_data
+
+      # Assert
+      must_respond_with :bad_request
+      check_flash(:error)
+    end
+  end
+
+  describe "logout" do
+    # It stops tracking a user
   end
 end
