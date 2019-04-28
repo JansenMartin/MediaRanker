@@ -40,6 +40,12 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    unless @user
+      head :not_found
+    end
+  end
+
   private
 
   def user_params
