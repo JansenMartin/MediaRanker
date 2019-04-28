@@ -3,6 +3,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    unless @user
+      head :not_found
+    end
+  end
+
   def login_form
     @user = User.new
   end
@@ -42,12 +48,6 @@ class UsersController < ApplicationController
     session[:user_id] = nil
 
     redirect_to root_path
-  end
-
-  def show
-    unless @user
-      head :not_found
-    end
   end
 
   private
