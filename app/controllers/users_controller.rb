@@ -16,15 +16,11 @@ class UsersController < ApplicationController
   end
 
   def login
-    # What's the user's username?
     username = params[:user][:username]
     @user = User.find_by(username: username)
 
-    # Has this user logged in before?
     if @user
-      #  If yes, set the session to the user id...and welcome them!
       session[:user_id] = @user.id
-      # session[:user_id] = User.find_by(id: @user.id)
       flash[:status] = :success
       flash[:message] = "Welcome back, #{username}!"
     else

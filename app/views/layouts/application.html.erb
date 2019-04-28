@@ -46,7 +46,6 @@
     </header>
 
     <main>
-      <%# Is the alert type an error?  If yes, DANGER.  If no, rely on flash status %>
       <% alert_type = flash[:status] == :error ? :danger : flash[:status] %>
       <section>
         <%= flash[:message] %>
