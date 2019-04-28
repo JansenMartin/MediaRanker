@@ -14,7 +14,7 @@ class Work < ApplicationRecord
   end
 
   def self.media_spotlight
-    top_work = Work.order(votes_count: :desc).limit(1)[0]
+    top_work = Work.where("votes_count > ?", 0).order(votes_count: :desc).limit(1)[0]
     return top_work
   end
 end
