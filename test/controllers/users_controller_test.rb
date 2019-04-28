@@ -1,16 +1,11 @@
 require "test_helper"
 
 describe UsersController do
-  # it "must be a real test" do
-  #   flunk "Need real tests"
-  # end
-
   before do
     @user = User.new(username: "cuppy")
   end
   describe "login_form" do
     it "renders without crashing" do
-      # Arrange
 
       # Act
       get login_path
@@ -84,6 +79,6 @@ describe UsersController do
   end
 
   describe "logout" do
-    # TODO
+    # TODO: Test logout functionality
   end
 end
