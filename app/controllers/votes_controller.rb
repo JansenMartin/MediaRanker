@@ -18,9 +18,5 @@ class VotesController < ApplicationController
     @vote.save
 
     redirect_to root_path
-
-    # Is a user logged in?
-    # Is a user not logged in?
-    # What happens if not?
   end
 end
