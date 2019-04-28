@@ -1,6 +1,5 @@
 class Work < ApplicationRecord
   has_many :votes, dependent: :destroy
-  # Must have a title
   validates :title, presence: true
 
   def self.index_media(media_type)
