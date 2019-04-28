@@ -38,7 +38,6 @@ describe WorksController do
   end
 
   describe "new" do
-    # It can make a new thing (returns status code 200)
     it "returns status code 200" do
       # Act/ Arrange
       get new_work_path
@@ -48,10 +47,7 @@ describe WorksController do
     end
 
     it "creates a new work" do
-      # What happens if I successfully save to DB?
-
       # Arrange
-      # Gimme some work data
       work_data = {
         work: {
           category: "Test Cat",
@@ -62,58 +58,43 @@ describe WorksController do
         },
       }
 
-      # Act
-      # Expect...
       expect {
         post works_path, params: work_data
       }.must_change "Work.count", +1
 
-      # Assert
       must_respond_with :redirect
       must_redirect_to works_path
     end
 
     it "sends back bad_request if given no work data" do
-      # What happens if I don't feed it any data?
-
-      # Arrange
-      # Blank book data!
       work_data = {
         work: {
           category: "",
         },
       }
 
-      # Assumption
       expect(Work.new(work_data[:work])).wont_be :valid?
 
       # Act
       expect {
         post works_path, params: work_data
       }.wont_change "Work.count"
-      # Expect...
-      # Post to works_path, with work_data for params...
-      # won't change Work count
 
       # Assert
       must_respond_with :bad_request
-      # must respond with :bad_request
     end
   end
 
   describe "edit" do
-    # What happens if it saves successfuly?
     it "responds ok if the work exists" do
       get edit_work_path(@work)
       must_respond_with :ok
     end
 
-    # What happens if it fails?
     it "responds with not found if the work doesn't exist" do
       work_id = Work.last.id + 1
       get edit_work_path(id: work_id)
       must_respond_with :not_found
-      #must_respond_with :not_found
     end
   end
 
@@ -139,8 +120,7 @@ describe WorksController do
       must_respond_with :redirect
       must_redirect_to work_path(@work)
 
-      # TODO
-      # Check flash here
+      # TODO Check flash here
 
       @work.reload
       expect(@work.title).must_equal(work_data[:work][:title])
@@ -171,44 +151,29 @@ describe WorksController do
 
   describe "destroy" do
     it "removes a work from the database" do
-      # Arrange -- We have a book.  Already
-
-      # Act -- Destroy book with this ID!  Expect that the DB is -1 now
+      # Act
       expect {
         delete work_path(@work.id)
       }.must_change "Work.count", -1
 
       # Assert
-      #  It needs to respond with a redirect
       must_respond_with :redirect
-      #  It needs to redirect to works_path
       must_redirect_to works_path
 
-      # Check our flash messages!
       check_flash
 
-      #  Let's try to assign the deleted book to a variable.  Is it nil?
       after_work = Work.find_by(id: @work.id)
       expect(after_work).must_be_nil
     end
 
     it "returns 404 if it tries to destroy a work that doesn't exist" do
-
-      # Arrange
-      # Bogus ID
       fake_id = Work.last.id + 1
 
-      # Act
-      # Try to destroy bogus ID
       expect {
         delete work_path(fake_id)
       }.wont_change "Work.count"
 
-      # Check flash??
-
-      # Assert
       must_respond_with :not_found
-      # Must respond with 404
     end
   end
 end

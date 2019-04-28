@@ -6,7 +6,7 @@ toy_story:
   creator: Pixar
   publication_year: 1995
   description: A buddy movie about toys.  T...hanks!
-  votes_count: 5
+  votes_count: 10
 
 wrinkle:
   category: book
@@ -87,3 +87,21 @@ infinity_war:
   creator: Disney
   publication_year: 2018
   description: Mr. Stark I don't feel so good
+
+work_1:
+  id: 1
+  category: album
+  title: Blue Breaker
+  creator: Dr. Sarai Langosh
+  publication_year: '1949'
+  description: Et et expedita non aut quo.
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &1 2019-04-22 22:58:51.143947000 Z
+    zone: &2 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: *1
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: &3 2019-04-22 22:58:51.143947000 Z
+    zone: *2
+    time: *3
+  votes_count: 1

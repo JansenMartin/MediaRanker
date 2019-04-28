@@ -1,6 +1,9 @@
 require "test_helper"
 
 describe HomepagesController do
+  before do
+    @works = :mulan
+  end
   it "renders without crashing" do
     # Arrange
 
